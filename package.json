@@ -1,0 +1,25 @@
+{
+  "name": "Zadanie_19.4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm-run-all test:*",
+    "test:1": "eslint action.js",
+    "test:2": "eslint comments.js",
+    "fix": "npm-run-all fix:*",
+    "fix:1": "eslint --fix action.js",
+    "fix:2": "eslint --fix comments.js",
+    "gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "npm-run-all": "^4.1.3"
+  }
+}
