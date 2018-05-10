@@ -11,7 +11,7 @@ function addComment(text) {
     };
 }
 
-const boundAddComment = text => store.dispatch(addComment(text));
+store.dispatch(addComment(text));
 
 function editComment(text, id) {
     return {
@@ -21,7 +21,7 @@ function editComment(text, id) {
     };
 }
     
-const boundEditComment = (text, id) => store.dispatch(editComment(text, id));
+store.dispatch(editComment(text, id));
     
 function removeComment(id) {
     return {
@@ -30,7 +30,7 @@ function removeComment(id) {
     };
 }
 
-const boundRemoveComment = (id) => store.dispatch(removeComment(id));
+store.dispatch(removeComment(id));
 
 function thumbUpComment(id, votes) {
     return {
@@ -40,7 +40,7 @@ function thumbUpComment(id, votes) {
     };
 }
 
-const boundThumbUpComment = (id, votes) => store.dispatch(thumbUpComment(id, votes));
+store.dispatch(thumbUpComment(id, votes));
 
 function thumbDownComment(id, votes) {
     return {
@@ -50,7 +50,7 @@ function thumbDownComment(id, votes) {
     };
 }
 
-const boundThumbDownWComment = (id, votes) => store.dispatch(thumbDownComment(id, votes));
+store.dispatch(thumbDownComment(id, votes));
 
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';

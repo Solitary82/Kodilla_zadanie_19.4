@@ -1,28 +1,21 @@
-import {ADD_COMMENT} = from './action';
-import {EDIT_COMMENT} = from './action';
-import {REMOVE_COMMENT} = from './action';
-import {THUMB_UP_COMMENT} = from './action';
-import {THUMB_DOWN_COMMENT} = from './action';
+import {ADD_COMMENT} from './action';
+import {EDIT_COMMENT} from './action';
+import {REMOVE_COMMENT} from './action';
+import {THUMB_UP_COMMENT} from './action';
+import {THUMB_DOWN_COMMENT} from './action';
 
 function comments (state = [], action) {
     switch(action.type) {
         case ADD_COMMENT:
             return [{
-                comments: [
-                    {
-                        id: action.id,
-                        text: action.text,
-                        votes: 0
-                    }
-                    , ...state]
+                     id: action.id,
+                     text: action.text,
+                     votes: 0
             }
-                    break;
+                    , ...state.comments];
 
         case REMOVE_COMMENT:
-            return Object.assign({}, state, {
-                state.filter(comment => comment.id !== action.id)
-            });
-            break;
+            return state.map(comment => comment.id !== action.id);
             
         case EDIT_COMMENT:
                 return state.map(comment => {
@@ -32,8 +25,7 @@ function comments (state = [], action) {
                         }
                         return comment;
                     });
-                break
-
+            
         case THUMB_UP_COMMENT:
             return state.map(comment => {
                     if(comment.id === action.id)  
@@ -41,8 +33,7 @@ function comments (state = [], action) {
                         }
                     return comment;
                     });
-                    break;
-                            
+            
         case THUMB_DOWN_COMMENT:
             return state.map(comment => {
                     if(comment.id === action.id)  
@@ -50,7 +41,8 @@ function comments (state = [], action) {
                         }
                     return comment
                     });
-            default:
-            return state;
+        default:
+        return state;
+    }
                     
 export default comments;
