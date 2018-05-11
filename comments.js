@@ -39,7 +39,7 @@ function comments (state = [], action) {
                 if(comment.id === action.id)  
                     return {...comment, votes: comment.votes + 1
                     }
-                return comment
+                    return comment
             });
         default:
             return state;
